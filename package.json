@@ -1,0 +1,104 @@
+{
+  "name": "todo-tracker-lab",
+  "displayName": "TODO Tracker",
+  "description": "Находит TODO/FIXME/HACK в проекте, показывает их в боковой панели, подсвечивает в коде и считает в строке состояния.",
+  "version": "1.0.0",
+  "publisher": "student",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zariami/todo_tracker_lab"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "todoTracker.scan",
+        "title": "Сканировать рабочую область",
+        "category": "TODO Tracker",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "todoTracker.addTodo",
+        "title": "Добавить TODO-комментарий",
+        "category": "TODO Tracker"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "todoTracker.view",
+          "name": "TODO Tracker"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "todoTracker.scan",
+          "when": "view == todoTracker.view",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "todoTracker.addTodo",
+        "key": "ctrl+alt+t",
+        "mac": "cmd+alt+t",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "TODO Tracker",
+      "properties": {
+        "todoTracker.keywords": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["TODO", "FIXME", "HACK"],
+          "description": "Ключевые слова, которые нужно искать в комментариях."
+        },
+        "todoTracker.include": {
+          "type": "string",
+          "default": "**/*.{ts,tsx,js,jsx,py,java,c,cpp,h,cs,go,rs,php,rb,kt,swift,html,css,md}",
+          "description": "Glob-шаблон файлов, в которых выполняется поиск."
+        },
+        "todoTracker.exclude": {
+          "type": "string",
+          "default": "**/{node_modules,out,dist,build,.git}/**",
+          "description": "Glob-шаблон файлов и папок, которые нужно пропустить."
+        },
+        "todoTracker.maxFiles": {
+          "type": "number",
+          "default": 2000,
+          "description": "Максимальное количество файлов, обрабатываемых за одно сканирование."
+        },
+        "todoTracker.scanOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Автоматически пересканировать проект при сохранении файла."
+        },
+        "todoTracker.highlight": {
+          "type": "boolean",
+          "default": true,
+          "description": "Подсвечивать ключевые слова в открытых редакторах."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.5.0"
+  }
+}
