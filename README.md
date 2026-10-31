@@ -1,7 +1,11 @@
 # TODO Tracker
 
-**Автор:** Амирханова Зарина Тимуровна, группа M3111
+**Автор:** Амирханова Зарина Тимуровна
+
+**Группа:** М3111
+
 **Дисциплина:** ИСРПО, лабораторная работа №3 «Создание плагина»
+
 **IDE:** Visual Studio Code
 
 ## Описание
@@ -36,7 +40,7 @@
 
 ```bash
 git clone https://github.com/USERNAME/todo-tracker-lab.git
-cd todo-tracker-lab
+cd todo_tracker_lab
 npm install
 npm run compile
 ```
@@ -55,7 +59,7 @@ vsce package
 ## Структура проекта
 
 ```text
-todo-tracker-lab/
+todo_tracker_lab/
 ├── .vscode/            # launch.json, tasks.json — отладка и сборка
 ├── samples/demo.js     # файл с примерами TODO для проверки
 ├── src/extension.ts    # весь код расширения
