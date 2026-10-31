@@ -1,7 +1,11 @@
 # TODO Tracker
 
-**Автор:** [Амирханова Зарина Тимуровна], группа [M3111]
+**Автор:** Амирханова Зарина Тимуровна
+
+**Группа:** М3111
+
 **Дисциплина:** ИСРПО, лабораторная работа №3 «Создание плагина»
+
 **IDE:** Visual Studio Code
 
 ## Описание
@@ -35,27 +39,18 @@
 Требуется Node.js 18.19+ и VS Code 1.90+.
 
 ```bash
-git clone https://github.com/USERNAME/todo-tracker-lab.git
-cd todo-tracker-lab
+git clone https://github.com/zariami/todo_tracker_lab.git
+cd todo_tracker_lab
 npm install
 npm run compile
 ```
 
 Откройте папку в VS Code и нажмите **F5** — запустится окно *Extension Development Host* с подключённым расширением. Для проверки откройте папку `samples`.
 
-### Упаковка в .vsix
-
-```bash
-npm install -g @vscode/vsce
-vsce package
-```
-
-Установка: *Extensions → … → Install from VSIX…*
-
 ## Структура проекта
 
 ```text
-todo-tracker-lab/
+todo_tracker_lab/
 ├── .vscode/            # launch.json, tasks.json — отладка и сборка
 ├── samples/demo.js     # файл с примерами TODO для проверки
 ├── src/extension.ts    # весь код расширения
